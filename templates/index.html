@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoltWise - Smart EV Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <h2>VoltWise ⚡</h2>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#vehicles">Explore EVs</a>
+            <a href="#assistant">AI Assistant</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>Find Your Perfect Electric Vehicle</h1>
+        <p>Smart choices. Clean energy. Better journeys.</p>
+        <a href="#vehicles" class="btn">Explore EVs</a>
+    </section>
+
+    
+    
+<section class="finder">
+    <h2>Find Your Perfect EV ⚡</h2>
+
+    <label for="budget">Select Your Budget (₹ lakh)</label>
+    <select id="budget">
+        <option value="8">Up to 8 lakh</option>
+        <option value="10">Up to 10 lakh</option>
+        <option value="15">Up to 15 lakh</option>
+        <option value="20">Up to 20 lakh</option>
+        <option value="30">Up to 30 lakh</option>
+    </select>
+
+    <label for="vehicleType">Vehicle Type</label>
+    <select id="vehicleType">
+        <option value="Any">Any Type</option>
+        <option value="Hatchback">Hatchback</option>
+        <option value="SUV">SUV</option>
+    </select>
+
+    <button onclick="findEV()">Find My EV</button>
+
+    <div id="results"></div>
+</section>
+<section class="vehicles" id="vehicles">
+        <h2>Explore Electric Vehicles</h2>
+
+        <div class="vehicle-container">
+
+            <div class="vehicle-card">
+               <img src="{{ url_for('static', filename='images/tata-tiago.jpg') }}"
+     alt="Tata Tiago EV"
+     class="vehicle-image">
+                <div class="car-icon">🚗</div>
+                <h3>Electric Hatchback</h3>
+                <p>Compact and suitable for city travel.</p>
+                <button type="button" onclick="document.getElementById('compareBtn').scrollIntoView({behavior:'smooth', block:'center'})">Explore</button>
+            </div>
+
+            <div class="vehicle-card">
+                <img src="{{ url_for('static', filename='images/tata-punch.jpg') }}"
+     alt="Tata Punch EV"
+     class="vehicle-image">
+                <div class="car-icon">🚙</div>
+                <h3>Electric SUV</h3>
+                <p>Spacious option for family journeys.</p>
+                <button type="button" onclick="document.getElementById('compareBtn').scrollIntoView({behavior:'smooth', block:'center'})">Explore</button>
+            </div>
+
+            <div class="vehicle-card">
+                <img src="{{ url_for('static', filename='images/tata-tigor.jpg') }}"
+     alt="Tata Tigor EV"
+     class="vehicle-image">
+                <div class="car-icon">🏎️</div>
+                <h3>Electric Sedan</h3>
+                <p>Comfortable option for longer journeys.</p>
+                <button type="button" onclick="document.getElementById('compareBtn').scrollIntoView({behavior:'smooth', block:'center'})">Explore</button>
+            </div>
+
+        </div>
+    </section>
+
+<!-- EV Comparison Section -->
+<section class="comparison" id="comparison">
+
+    <h2>Compare Electric Vehicles ⚡</h2>
+
+    <p>Select two electric vehicles to compare their features.</p>
+
+    <div class="comparison-container">
+
+        <div>
+            <label for="ev1">Select First EV</label>
+            <select id="ev1">
+                <option value="Tata Tiago EV">Tata Tiago EV</option>
+                <option value="MG Comet EV">MG Comet EV</option>
+                <option value="Tata Punch EV">Tata Punch EV</option>
+                <option value="MG ZS EV">MG ZS EV</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="ev2">Select Second EV</label>
+            <select id="ev2">
+                <option value="MG Comet EV">MG Comet EV</option>
+                <option value="Tata Tiago EV">Tata Tiago EV</option>
+                <option value="Tata Punch EV">Tata Punch EV</option>
+                <option value="MG ZS EV">MG ZS EV</option>
+            </select>
+        </div>
+
+    </div>
+
+    <button id="compareBtn" type="button">
+        Compare EVs
+    </button>
+
+    <div id="comparisonResults"></div>
+
+</section>
+<!-- End EV Comparison Section -->
+    <section class="assistant" id="assistant">
+
+    <h2>Meet Your VoltWise AI Assistant 🤖</h2>
+
+    <p>Ask me anything about electric vehicles!</p>
+
+    <button id="startChatBtn" type="button">
+        Start AI Assistant
+    </button>
+
+    <div id="chatBox" style="display:none;">
+
+        <div id="chatMessages"></div>
+
+        <input
+            type="text"
+            id="chatInput"
+            placeholder="Ask about EV range, charging, battery..."
+        >
+
+        <button id="sendChatBtn" type="button">
+            Send
+        </button>
+
+    </div>
+
+</section>
+
+    <footer>
+        <p>© 2026 VoltWise | Smart EV Buyer's Assistant</p>
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
